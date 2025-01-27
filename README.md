@@ -119,7 +119,7 @@ Bootstrap confidence intervals:
 - Both datasets should be pandas DataFrames
 
 ## References
-- Estimating and Correcting for Misclassification Error in Empirical Textual Research, by Paul Connell and Jonathan H. Choi available at:https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4913179
+- Estimating and Correcting for Misclassification Error in Empirical Textual Research, by Paul Connell and Jonathan H. Choi available at: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4913179
 
 ## License
 
