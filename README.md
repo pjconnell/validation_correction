@@ -53,7 +53,7 @@ validation_correction.plot_coefficients(naive_result, result)
 validation_correction.plot_bootstrap_distributions()
 ```
 
-### Logistic Regression with Mismeasured Predictor
+### Logistic Regression with Mismeasured Outcome
 
 ```python
 # Format: u||y ~ x + z
