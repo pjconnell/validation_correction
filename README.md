@@ -108,7 +108,7 @@ The package provides two types of visualizations:
 
 Bootstrap confidence intervals:
 - Uses percentile method (2.5th and 97.5th percentiles)
-- Accessible via `result['[0.025]']` and `result['[0.975]']`
+- Accessible via `result['[0.025']` and `result['0.975]']`
 - Number of bootstrap iterations controlled by `n_boots` parameter
 - Bootstrap is required for measurement error correction
 
