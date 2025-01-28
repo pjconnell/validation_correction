@@ -78,13 +78,13 @@ The package uses a special formula syntax to specify the relationship between tr
    - Where `x` is the true variable and `w` is its mismeasured version
    - Additional covariates (`z`) are measured without error
 
-2. For mismeasured outcomes (not yet implemented):
+2. For mismeasured binary outcomes (multinomial outcomes not yet implemented):
    - Format: `u || y ~ x + z`
    - Where `y` is the true outcome and `u` is its mismeasured version
    - Predictors go on the right side of the `~`
 
 3. For naive regression (no correction):
-   - Standard formula format: `y ~ w + z`
+   - Standard formula format: `u ~ w + z`
    - No `||` operator needed
    - Set `val_data=None`
 
