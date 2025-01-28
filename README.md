@@ -62,7 +62,8 @@ result = validation_correction.logit(
     formula="u||y ~ x + z",
     data=research_data,
     val_data=validation_data,
-    bootstrap=True
+    bootstrap=True,
+    n_boots=1000
 )
 
 print(result)
