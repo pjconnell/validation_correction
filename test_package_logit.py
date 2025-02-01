@@ -23,7 +23,6 @@ true_beta_z = 3
 F= 1/(1+np.exp(-(true_beta_0 + true_beta_x * X + true_beta_z * Z)))
 
 Y = np.random.binomial(1,F)
-# Y = np.random.binomial(0,min(max((true_beta_0 + true_beta_x * X + true_beta_z * Z),0),1))
 
 # Misclassified version of Y (U)
 # P(U=1|Y=1) = 0.8 (sensitivity)
@@ -43,7 +42,7 @@ research_data = pd.DataFrame({
     'z': Z
 })
 
-# Create validation dataset (random subset with both true X and observed W)
+# Create validation dataset (random subset with both true Y and observed U)
 val_indices = np.random.choice(n_samples, n_validation, replace=False)
 validation_data = pd.DataFrame({
     'y': Y[val_indices],
@@ -69,7 +68,7 @@ print(naive_result.summary().tables[1])
 # Run corrected regression
 print("\nRunning corrected regression...")
 result = validation_correction.logit(
-    formula="u||y ~ x + z",  # w is the mismeasurement of x
+    formula="u||y ~ x + z",  # u is the mismeasurement of y
     data=research_data,
     val_data=validation_data,
     bootstrap=True,
@@ -81,12 +80,8 @@ print(result)
 # Create plots
 print("\nGenerating plots...")
 coef_plot = validation_correction.plot_coefficients(naive_result, result)
-coef_plot.savefig('coefficient_comparison.png')
-print("Saved coefficient comparison plot to 'coefficient_comparison.png'")
 
 # Plot bootstrap distributions using the bootstrap results from validation_correction
 dist_plot = validation_correction.plot_bootstrap_distributions()
-dist_plot.savefig('bootstrap_distributions.png')
-print("Saved bootstrap distributions plot to 'bootstrap_distributions.png'")
 
-print("\nTest complete. Check the plots in 'coefficient_comparison.png' and 'bootstrap_distributions.png'.") 
+print("\nTest complete.") 
